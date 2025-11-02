@@ -5,7 +5,7 @@ import dev.langchain4j.service.V;
 import dev.langchain4j.service.spring.AiService;
 
 @AiService
-public interface MoviesApiService {
+public interface MovieAIService {
     @UserMessage("""
             Genera un saludo de bienvenida para la aplicación {{platform}}. Usa menos de 120 carácteres.
             """)
