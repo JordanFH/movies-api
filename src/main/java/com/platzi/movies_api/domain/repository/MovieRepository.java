@@ -8,4 +8,6 @@ public interface MovieRepository {
     List<MovieDto> getAll();
 
     MovieDto getById(String id);
+
+    MovieDto save(MovieDto movieDto);
 }

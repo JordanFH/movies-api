@@ -2,6 +2,7 @@ package com.platzi.movies_api.persistance.mapper;
 
 import com.platzi.movies_api.domain.dto.MovieDto;
 import com.platzi.movies_api.persistance.entity.MovieEntity;
+import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
@@ -14,7 +15,7 @@ public interface MovieMapper {
 
     List<MovieDto> toMovieDto(Iterable<MovieEntity> movieEntities);
 
-    @Mapping(source = "id", target = "id")
+    @InheritInverseConfiguration
     MovieEntity toMovieEntity(MovieDto movieDto);
 
     Iterable<MovieEntity> toMovieEntity(List<MovieDto> movieDtos);
