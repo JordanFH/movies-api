@@ -1,7 +1,6 @@
 package com.platzi.movies_api.persistance.entity;
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.ColumnDefault;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -29,8 +28,7 @@ public class MovieEntity {
     private BigDecimal rating;
 
     @Column(nullable = false, length = 1)
-    @ColumnDefault("'D'")
-    private String status;
+    private String status = "D";
 
     public String getId() {
         return id;

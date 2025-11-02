@@ -1,6 +1,7 @@
 package com.platzi.movies_api.domain.service;
 
 import com.platzi.movies_api.domain.dto.MovieDto;
+import com.platzi.movies_api.domain.dto.UpdateMovieDto;
 import com.platzi.movies_api.domain.repository.MovieRepository;
 import org.springframework.stereotype.Service;
 
@@ -24,5 +25,9 @@ public class MovieService {
 
     public MovieDto save(MovieDto movieDto) {
         return this.movieRepository.save(movieDto);
+    }
+
+    public MovieDto update(String id, UpdateMovieDto updateMovieDto) {
+        return this.movieRepository.update(id, updateMovieDto);
     }
 }

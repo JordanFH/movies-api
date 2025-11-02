@@ -1,6 +1,7 @@
 package com.platzi.movies_api.web.controller;
 
 import com.platzi.movies_api.domain.dto.MovieDto;
+import com.platzi.movies_api.domain.dto.UpdateMovieDto;
 import com.platzi.movies_api.domain.service.MovieService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -33,7 +34,12 @@ public class MovieController {
     }
 
     @PostMapping
-    public ResponseEntity<MovieDto> save(@RequestBody MovieDto movieDto) {
+    public ResponseEntity<MovieDto> create(@RequestBody MovieDto movieDto) {
         return ResponseEntity.ok(this.movieService.save(movieDto));
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<MovieDto> update(@PathVariable String id, @RequestBody UpdateMovieDto updateMovieDto) {
+        return ResponseEntity.ok(this.movieService.update(id, updateMovieDto));
     }
 }
