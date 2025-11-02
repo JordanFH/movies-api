@@ -30,4 +30,8 @@ public class MovieService {
     public MovieDto update(String id, UpdateMovieDto updateMovieDto) {
         return this.movieRepository.update(id, updateMovieDto);
     }
+
+    public MovieDto delete(String id) {
+        return this.movieRepository.delete(id);
+    }
 }

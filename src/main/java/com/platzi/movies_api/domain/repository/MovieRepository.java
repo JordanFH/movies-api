@@ -13,4 +13,6 @@ public interface MovieRepository {
     MovieDto save(MovieDto movieDto);
 
     MovieDto update(String id, UpdateMovieDto updateMovieDto);
+
+    MovieDto delete(String id);
 }
