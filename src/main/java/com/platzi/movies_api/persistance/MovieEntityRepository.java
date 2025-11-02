@@ -3,6 +3,7 @@ package com.platzi.movies_api.persistance;
 import com.platzi.movies_api.domain.dto.MovieDto;
 import com.platzi.movies_api.domain.repository.MovieRepository;
 import com.platzi.movies_api.persistance.crud.CrudMovieEntity;
+import com.platzi.movies_api.persistance.entity.MovieEntity;
 import com.platzi.movies_api.persistance.mapper.MovieMapper;
 import org.springframework.stereotype.Repository;
 
@@ -21,5 +22,11 @@ public class MovieEntityRepository implements MovieRepository {
     @Override
     public List<MovieDto> getAll() {
         return this.movieMapper.toMovieDto(this.crudMovieEntity.findAll());
+    }
+
+    @Override
+    public MovieDto getById(String id) {
+        MovieEntity movieEntity = this.crudMovieEntity.findById(id).orElse(null);
+        return this.movieMapper.toMovieDto(movieEntity);
     }
 }
