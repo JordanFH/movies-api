@@ -3,6 +3,7 @@ package com.platzi.movies_api.persistance;
 import com.platzi.movies_api.domain.dto.MovieDto;
 import com.platzi.movies_api.domain.dto.UpdateMovieDto;
 import com.platzi.movies_api.domain.exception.MovieAlreadyExistsException;
+import com.platzi.movies_api.domain.exception.MovieNotFoundException;
 import com.platzi.movies_api.domain.repository.MovieRepository;
 import com.platzi.movies_api.persistance.crud.CrudMovieEntity;
 import com.platzi.movies_api.persistance.entity.MovieEntity;
@@ -28,7 +29,7 @@ public class MovieEntityRepository implements MovieRepository {
 
     @Override
     public MovieDto getById(String id) {
-        MovieEntity movieEntity = this.crudMovieEntity.findById(id).orElse(null);
+        MovieEntity movieEntity = this.crudMovieEntity.findById(id).orElseThrow(() -> new MovieNotFoundException(id));
         return this.movieMapper.toMovieDto(movieEntity);
     }
 
@@ -44,8 +45,7 @@ public class MovieEntityRepository implements MovieRepository {
 
     @Override
     public MovieDto update(String id, UpdateMovieDto updateMovieDto) {
-        MovieEntity movieEntity = this.crudMovieEntity.findById(id).orElse(null);
-        if (movieEntity == null) return null;
+        MovieEntity movieEntity = this.crudMovieEntity.findById(id).orElseThrow(() -> new MovieNotFoundException(id));
 
         movieEntity.setTitle(updateMovieDto.title());
         movieEntity.setDuration(updateMovieDto.duration());
@@ -56,8 +56,7 @@ public class MovieEntityRepository implements MovieRepository {
 
     @Override
     public MovieDto delete(String id) {
-        MovieEntity movieEntity = this.crudMovieEntity.findById(id).orElse(null);
-        if (movieEntity == null) return null;
+        MovieEntity movieEntity = this.crudMovieEntity.findById(id).orElseThrow(() -> new MovieNotFoundException(id));
 
         this.crudMovieEntity.delete(movieEntity);
         return this.movieMapper.toMovieDto(movieEntity);
