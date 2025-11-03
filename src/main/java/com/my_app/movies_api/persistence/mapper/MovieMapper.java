@@ -1,7 +1,7 @@
-package com.my_app.movies_api.persistance.mapper;
+package com.my_app.movies_api.persistence.mapper;
 
 import com.my_app.movies_api.domain.dto.MovieDto;
-import com.my_app.movies_api.persistance.entity.MovieEntity;
+import com.my_app.movies_api.persistence.entity.MovieEntity;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

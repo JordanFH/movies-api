@@ -1,13 +1,13 @@
-package com.my_app.movies_api.persistance;
+package com.my_app.movies_api.persistence;
 
 import com.my_app.movies_api.domain.dto.MovieDto;
 import com.my_app.movies_api.domain.dto.UpdateMovieDto;
 import com.my_app.movies_api.domain.exception.MovieAlreadyExistsException;
 import com.my_app.movies_api.domain.exception.MovieNotFoundException;
 import com.my_app.movies_api.domain.repository.MovieRepository;
-import com.my_app.movies_api.persistance.crud.CrudMovieEntity;
-import com.my_app.movies_api.persistance.entity.MovieEntity;
-import com.my_app.movies_api.persistance.mapper.MovieMapper;
+import com.my_app.movies_api.persistence.crud.CrudMovieEntity;
+import com.my_app.movies_api.persistence.entity.MovieEntity;
+import com.my_app.movies_api.persistence.mapper.MovieMapper;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

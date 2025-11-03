@@ -1,4 +1,4 @@
-package com.my_app.movies_api.persistance.entity;
+package com.my_app.movies_api.persistence.entity;
 
 import jakarta.persistence.*;
 
