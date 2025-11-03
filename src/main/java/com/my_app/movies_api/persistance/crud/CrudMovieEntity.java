@@ -1,0 +1,8 @@
+package com.my_app.movies_api.persistance.crud;
+
+import com.my_app.movies_api.persistance.entity.MovieEntity;
+import org.springframework.data.repository.CrudRepository;
+
+public interface CrudMovieEntity extends CrudRepository<MovieEntity, String> {
+    MovieEntity findFirstByTitle(String title);
+}
