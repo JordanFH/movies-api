@@ -7,7 +7,7 @@ import dev.langchain4j.service.spring.AiService;
 @AiService
 public interface MovieAIService {
     @UserMessage("""
-            Genera un saludo de bienvenida para la aplicación {{platform}}. Usa menos de 120 carácteres.
+            Generate a greeting for the application {{platform}}. Must be less than 120 characters.
             """)
     String generateGreeting(@V("platform") String platform);
 }
