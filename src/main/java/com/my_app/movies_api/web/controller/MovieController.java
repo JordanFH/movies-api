@@ -3,12 +3,14 @@ package com.my_app.movies_api.web.controller;
 import com.my_app.movies_api.domain.dto.MovieDto;
 import com.my_app.movies_api.domain.dto.UpdateMovieDto;
 import com.my_app.movies_api.domain.service.MovieService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Tag(name = "Movies", description = "Movies API")
 @RestController
 @RequestMapping("/movies")
 public class MovieController {
